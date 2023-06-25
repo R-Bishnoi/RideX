@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map Example</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    var myMap = L.map('map').setView([51.505, -0.09], 13);
+
+    // Add the tile layer (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(myMap);
+
+    // Add markers for different locations
+    var locations = [
+      { name: 'Location A', lat: 51.505, lng: -0.09, details: 'This is Location A' },
+      { name: 'Location B', lat: 51.51, lng: -0.1, details: 'This is Location B' },
+      { name: 'Location C', lat: 51.495, lng: -0.085, details: 'This is Location C' },
+    ];
+
+    locations.forEach(function (location) {
+      var marker = L.marker([location.lat, location.lng]).addTo(myMap);
+      marker.bindPopup('<b>' + location.name + '</b><br>' + location.details);
+    });
+  </script>
+</body>
+</html>

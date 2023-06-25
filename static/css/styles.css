@@ -1,0 +1,726 @@
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Poppins' , sans-serif;
+    overflow-x: hidden;
+}
+.landing-div{
+    display: flex;
+    margin-top: 7.5vw;
+}
+.landing-div img{
+    width: 35%;
+    margin-right: 7.5vw;
+}
+.title-desc{
+    margin-left: 7.5vw;
+    margin-top: 3.75vw;
+}
+.title-desc h1{
+    font-size: 4vw;
+}
+.title-desc p {
+    margin-top: 0.5vw;
+}
+.about-sec{
+    margin-top: 13.5vw;
+}
+.about-sec h1{
+    font-size: 3.5vw;
+    text-align: center;
+}
+.about-sec p{
+    text-align: center;
+    margin-top: 1.5vw;
+}
+.inst-sec{
+    margin-top: 20vw;
+}
+.inst-sec h1{
+    font-size: 3.5vw;
+    margin-left: 7.5vw;
+}
+.material-icons{
+    font-family: 'Material Icons', sans-serif;
+}
+.step{
+    height: 6vw;
+    width: 6vw;
+    background: #111;
+    color: #FF625A;
+    border-radius: 1vw;
+}
+.step .material-icons{
+    position: absolute;
+    font-size: 2.75vw;
+}
+.step-i{
+    display: flex;
+    margin-left: 7.5vw;
+    margin-top: 5vw;
+    padding-right: 5vw;
+}
+.step-1 h3,
+.step-2 h3,
+.step-3 h3,
+.step-4 h3{
+    margin-top: 2.5vw;
+}
+.s-1{
+    margin-left: 1.5vw;
+    margin-top: 1.65vw;
+}
+.s-2-1{
+    margin-left: 0.75vw;
+    margin-top: 1.65vw;
+}
+.s-2-2{
+    margin-top: 1.66vw;
+    margin-left: 2.5vw;
+}
+.s-3-1{
+    margin-left: 1.5vw;
+    margin-top: 0.85vw;
+}
+.s-3-2{
+    margin-left: 0.75vw;
+    margin-top: 1.85vw;
+}
+.s-3-3{
+    margin-left: 2.25vw;
+    margin-top: 1.85vw;
+}
+.s-4-1{
+    margin-left: 1.5vw;
+    margin-top: 1vw;
+}
+.s-4-2{
+    margin-top: 1.5vw;
+    margin-left: 0.85vw;
+}
+.s-4-3{
+    margin-top: 1.5vw;
+    margin-left: 2.25vw;
+}
+.s-4-4{
+    margin-left: 1.5vw;
+    margin-top: 2vw;
+}
+.user-sec{
+    margin-top: 7.5vw;
+}
+.user-sec h4{
+    color: grey;
+    letter-spacing: 2px;
+    margin-left: 7.5vw;
+}
+.user-sec h1{
+    margin-left: 7.5vw;
+    font-size: 3.5vw;
+}
+.user-sec img{
+    width: 25%;
+    margin-left: 7.5vw;
+    margin-top: 2.5vw;
+}
+.user-1{
+    height: 5vw;
+    width: 5vw;
+    background: url('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 10px 0px  0px 0px rgba(0,0,0,0.75);
+    margin-left: 55vw;
+}
+.user-2{
+    height: 5vw;
+    width: 5vw;
+    background: url('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 10px 0px  0px 0px rgba(0,0,0,0.75); 
+    margin-top: -5vw;
+    margin-left: 62.5vw;
+}
+.user-3{
+    height: 5vw;
+    width: 5vw;
+    background: url('https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 10px 0px  0px 0px rgba(0,0,0,0.75);
+    margin-top: -5vw;
+    margin-left: 70vw;
+}
+.user-4{
+    height: 5vw;
+    width: 5vw;
+    background:url('https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 10px 0px  0px 0px rgba(0,0,0,0.75);
+    margin-top: -5vw;
+    margin-left: 77.5vw;
+}
+.user-1,
+.user-2,
+.user-3,
+.user-4{
+    transition: all 0.5s ease;
+}
+.user-1:hover,
+.user-2:hover,
+.user-3:hover,
+.user-4:hover{
+    transform: translateY(-5px);
+    box-shadow: 10px 0px  0px 0px rgb(255, 98, 90,0.75);
+}
+.banner{
+    background: url('https://media.discordapp.net/attachments/741244174736556076/898490802517458944/unknown.png?width=1080&height=280');
+    background-size: cover;
+    height: 28.5vw;
+    margin-left: -1.15vw;
+    margin-top: 5vw;
+}
+.footer{
+    height: 25vw;
+    background: #eee;
+}
+.footer p{
+    position: absolute;
+    margin-left: 25vw;
+    margin-top: 5vw;
+}
+.circle{
+    position: absolute;
+    height: 15vw;
+    width: 15vw;
+    background: url('https://media.discordapp.net/attachments/741244174736556076/898501079019450438/unknown.png');
+    background-size: cover;
+    border-radius: 100%;
+    margin-left: 5vw;
+    margin-top: 2.5vw;
+}
+.social{
+    display: flex;
+    list-style: none;
+    margin-left: 25vw;
+    padding-top: 10vw;
+    width: 10vw;
+    font-size: 1.5vw;
+}
+.foot-nav{
+    position: absolute;
+    margin-left: 70vw;
+    list-style: none;
+    margin-top: 4.5vw;
+}
+.foot-nav li{
+    margin-top: .5vw;
+}
+.nav ul a{
+    text-decoration: none;
+    color: black;
+    transition: all 0.15s ease;
+}
+.nav ul a:hover{
+    text-decoration: underline;
+    color: #FF625A;
+}
+.nav img{
+    height: 5vw;
+    width: 5vw;
+    position: absolute;
+    margin-left: 7vw;
+    margin-top: 1.75vw;
+    border-radius: 100%;
+}
+.n-1{
+    display: flex;
+    list-style: none;
+    width: 25vw;
+    font-size: 1.5vw;
+    margin-left: 39vw;
+    padding-top: 2.5vw;
+}
+.link{
+    margin-top: 5vw;
+}
+.log,.reg{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background:rgb(0, 0, 0);
+    border-radius: 0.5vw;
+    color: white;
+    text-decoration: none;
+}
+.log:hover,.reg:hover{
+    color: rgb(250, 113, 106);
+}
+.about-sec img{
+    width: 35%;
+    transform: scaleX(-1);
+    position: absolute;
+    margin-top: 7.5vw;
+    margin-left: 60vw;
+}
+.about-sec h2{
+    font-size: 2.5vw;
+    margin-top: 17.5vw;
+    margin-left: 7.5vw;
+}
+input{
+    font-family: 'Poppins', sans-serif;
+}
+.form-login #password,
+.form-login #email,
+.form-register #fullname,
+.form-register #username,
+.form-register #password,
+.form-register #password2,
+.form-register #email{
+    width: 18.5vw;
+    height: 2.5vw;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    background: #eee;
+    margin-top: 0.5vw;
+}
+.form-register input:focus,
+.form-login input:focus{
+    outline: none;
+}
+.submit{
+    width: 10vw;
+    height: 2.5vw;
+    font-size:1.25vw;
+    margin-top: 2.5vw;
+    cursor: pointer;
+    border: none;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    border-radius: 10px;
+}
+.lg-img,.rg-img{
+    margin-left: 50vw;
+}
+.lg-img{
+    margin-top: 7.5vw;
+    width: 45%;
+}
+.rg-img{
+    width:35%;
+    margin-top: 5vw;
+}
+.form-register{
+    margin-left: 5vw;
+    margin-top: 12.5vw;
+    position: absolute;
+}
+.form-login{
+    margin-left: 5vw;
+    margin-top: 17.5vw;
+    position: absolute;
+}
+.r-1,.l-1{
+    position: absolute;
+    margin-left: 5vw;
+}
+.l-1{
+    font-size: 3.5vw;
+    margin-top: 10vw;
+}
+.r-1{
+    font-size: 3.5vw;
+    margin-top: 5vw;
+}
+.err-p{
+    color: red;
+}
+.user-reviews{
+    position: absolute;
+    margin-top: -25vw;
+    margin-left: 55vw;
+}
+.user-reviews h2{
+    font-size: 2.5vw;
+}
+.line-user{
+    height: 0.2vw;
+    width: 15vw;
+    background: black;
+    position: absolute;
+    margin-top: .75vw;
+    margin-left: 1.5vw;
+}
+.user-reviews h3{
+    position: absolute;
+    margin-left: 17.5vw;
+    margin-top: -.25vw;
+}
+.user-reviews p{
+    margin-top: 3.5vw;
+}
+.prof-desc{
+    margin-top: 5vw;
+}
+.prof-desc h2{
+    margin-left: 10vw;
+    margin-top: 0.5vw;
+}
+.p-a{
+    margin-left: 10vw;
+    margin-top: 5vw;
+    background: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    position: absolute;
+    width: 10vw;
+    text-align: center;
+}
+.p-d{
+    margin-left: 2.5vw;
+    background: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.line-1,.line-2{
+    height: 0.2vw;
+    width: 6vw;
+    background: #111;
+    position: absolute;
+
+}
+.create{
+    background: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 15vw;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    position: absolute;
+    margin-left:4vw;
+    margin-top: 3.5vw;
+    text-align: center;
+}
+.nav-user{
+    background: #eee;
+    width: 22.5vw;
+    height: 100vw;
+}
+.line-1{
+    margin-left: 2.5vw;
+    margin-top: 10.71vw;
+}
+.line-2{
+    margin-left: 13.5vw;
+    margin-top: 10.71vw;
+}
+.or{
+    margin-left:10vw;
+    margin-top: 9.5vw;
+    position: absolute;
+    font-size: 1.5vw;
+}
+.user{
+    margin-left: 3.75vw;
+    font-size: 1.75vw;
+    padding-top: 6.5vw;
+}
+.user a {
+    color: #FF625A;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.user a:hover{
+    text-decoration: underline;
+}
+.n-c{
+    position: absolute;
+    margin-top: 15vw;
+    width: 15vw;
+    height: 2.5vw;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    transition: all 0.2s ease;
+    border:none;
+    margin-left: 3.5vw;
+    border-radius: 2.5px;
+    background: rgba(199, 198, 198, 0.432);
+}
+.n-c:focus{
+    outline: none;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    border: 0.75px solid rgba(0, 0, 0, 0.137);
+    width: 17.5vw;
+    margin-left: 2.5vw;
+}
+.carpool-log{
+    position: absolute;
+    margin-top: -95vw;
+    margin-left: 25vw;
+}
+
+.carpool-log h2{
+    font-size: 3.5vw;
+}
+.carpool-card{
+    margin-left: 2.5vw;
+    margin-top: 2.5vw;
+    background:rgba(199, 198, 198, 0.432);
+    padding:1.5vw;
+    width: 45vw;
+    border-radius: 1vw;
+}
+.carpool-card button{
+    height: 2.5vw;
+    background: rgba(0, 0, 0, 0.87);
+    border:none;
+    color: #eee;
+    font-family: 'Poppins', sans-serif;
+    border-radius: .5vw;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+.carpool-card button:hover{
+    background: #FF625A;
+    color: #111;
+    font-weight: 600;
+}
+.req-carp{
+    position: absolute;
+    margin-top: 5vw;
+    padding-left: 5vw;
+}
+.req-img{
+    position: absolute;
+    width: 40%;
+    margin-left: 50vw;
+    margin-top: 15vw;
+}
+.req-carp h2{
+    font-size: 3.5vw;
+}
+.req-carp form{
+    margin-top: 5vw;
+}
+.req-carp form input{
+    width: 25vw;
+    height: 2.5vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    border-radius: 2.5px;
+    border: none;
+    background: rgba(199, 198, 198, 0.432);
+    transition: all 0.5s ease;
+}
+.req-carp form input:focus{
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.212);
+    border-radius: 5px;
+}
+.req-carp form button{
+    width: 15vw;
+    height: 2.5vw;
+    border-radius: 5px;
+    background: black;
+    color: white;
+    border:none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15vw;
+    cursor: pointer;
+}
+.material-icons-outlined{
+    font-family: 'Material Icons', sans-serif;
+}
+.back{
+    font-size: 2.5vw;
+    position: absolute;
+    color: black;
+    transition: all 0.2s ease;
+    margin-left: 85vw;
+    margin-top: 3.5vw;
+    text-decoration: none;
+}
+.back:hover,.msg:hover{
+    color: #FF625A;
+}
+.msg{
+    position: absolute;
+    font-size: 2.5vw;
+    position: absolute;
+    color: black;
+    transition: all 0.2s ease;
+    margin-left: 87.5vw;
+    margin-top: -97.5vw;
+    text-decoration: none;
+}
+#button {
+    display: inline-block;
+    background-color: #FF625A;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    text-decoration: none;
+    visibility: hidden;
+    z-index: 1000;
+}
+#button::after {
+    content: "expand_less";
+    font-family: 'Material Icons', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+  }
+  #button:hover {
+    cursor: pointer;
+    background-color: #ec5c55;
+  }
+  #button:active {
+    background-color: #ec5c55ce;
+  }
+  #button.show {
+    opacity: 1;
+    visibility: visible;
+  }
+.none-show{
+    background: url('https://media.discordapp.net/attachments/741244174736556076/899332941228945438/unknown.png');
+    width: 35vw;
+    height: 25vw;
+    background-size: cover;
+}
+.carpool-log h3{
+    font-size: 2vw;
+}
+.n-s{
+    width: 10vw;
+    height: 2.5vw;
+    background: #111;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15vw;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    left: 6.5%;
+    position: absolute;
+    margin-top: 18.5vw;
+}
+.leader-h2{
+    font-size: 3.5vw;
+    margin-top: 2.5vw;
+    margin-left: 2.5vw;
+}
+.point{
+    position: absolute;
+    margin-left:57.5vw;
+    margin-top: -10vw;
+    font-size: 2.5vw;
+}
+.animated-progress {
+    width: 15vw;
+    height: .5vw;
+    border-radius: 5px;
+    margin-left: -2.5vw;
+    overflow: hidden;
+    position: relative;
+    background: #111;
+  }
+  
+  .animated-progress span {
+    height: 100%;
+    display: block;
+    width: 0;
+    color: rgb(255, 251, 251);
+    font-size: 0.75vw;
+    line-height: 30px;
+    position: absolute;
+    text-align: end;
+    padding-right: 5px;
+
+  }
+  
+  .progress-blue span {
+    background-color: #ec5c55;
+  }
+  .r-p{
+      font-size: 1vw;margin-top: 1.5vw;
+  }
+  .redeem{
+      width: 15vw;
+      margin-top: 2.5vw;
+      font-family: 'Poppins', sans-serif;
+      height: 2.5vw;
+      font-size: 1.25vw;
+      background: #111;
+      color: #fff; 
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-left: -2.5vw;
+  }
+  .redeem-disabled{
+    opacity: 0.65; 
+    width: 15vw;
+    margin-top: 2.5vw;
+    font-family: 'Poppins', sans-serif;
+    height: 2.5vw;
+    font-size: 1.25vw;
+    background: #111;
+    color: #fff; 
+    border: none;
+    border-radius: 10px;
+    margin-left: -2.5vw;
+    pointer-events: none;
+  }
+  .c-a ,.c-r{
+      width: 15vw;
+      text-align: center;
+      background: #000;
+      color: #fff;
+      border-radius: 10px;
+      height: 2.5vw;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25vw; margin-right: 2.5vw;
+      border:none;
+      cursor: pointer;
+      margin-top: 10vw;
+    }
+  .c-a{
+      margin-left: 10vw;
+  }
