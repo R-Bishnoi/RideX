@@ -1,6 +1,7 @@
-# Ride Offering and Booking: Users can offer rides from a specific source to a destination, providing an affordable alternative to other transportation services. People can view the available rides from their city to various destinations, comparing prices and selecting the most suitable option.
-# OpenCage Map Integration: The project incorporates OpenCageMap integration, which allows users to visualise the available rides on a map. This feature provides a convenient way to locate rides from a specific source to different destination cities.
-# Live Chat and Communication: To facilitate communication between ride offerers and ride seekers, a live chat or communication platform is integrated. This enables users to discuss details, arrange pickup points, and coordinate other aspects related to the rides.
-# Technology Stack: The frontend design is implemented using HTML, CSS, and JavaScript. For server-side development, Node.js and Express.js are utilised. MongoDB is chosen as the backend database to store user information, chat records, and created ride data. The backend retrieves and provides the necessary data to the map, showcasing all the rides available from one city to multiple destination cities.
+# RideX
+-> RideOffer or sharing
+-> OpenCage Map Integration 
+-> Embedded Chat Application
+-> Tech Stack : HTML, Css, Java script , Node.js , Express.js , Mongodb , OpenCage Map Api
 
 
