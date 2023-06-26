@@ -19,10 +19,10 @@ RideX is a ride-sharing application that provides a convenient and efficient pla
 - Real-Time Communication:
   - Integrated with Socket.IO, enabling real-time communication capabilities for seamless interaction between users.
 
--> RideOffer or sharing
--> OpenCage Map Integration 
--> Embedded Chat Application
--> Tech Stack : HTML, Css, Java script , Node.js , Express.js , Mongodb , OpenCage Map Api
+- RideOffer or sharing
+- OpenCage Map Integration 
+- Embedded Chat Application
+- Tech Stack : HTML, Css, Java script , Node.js , Express.js , Mongodb , OpenCage Map Api
 
 
 
