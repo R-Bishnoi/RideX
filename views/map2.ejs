@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map Example</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    /* Custom styles for the header */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px; /* Adjusted height of the header */
+        background-color: #d8d4d4;
+    }
+
+    .navbar a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 10px;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .navbar .logo img {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+    }
+
+    .navbar .nav-links a {
+        margin: 0 10px;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: #ddd;
+    }
+
+    .navbar .nav-links a:hover {
+        background-color: #bbb;
+    }
+
+    .navbar .nav-links a.active {
+        background-color: #999;
+        color: #fff;
+    }
+
+    .navbar .chat-logo {
+        font-size: 24px;
+        color: #333;
+    }
+
+    #map {
+      height: calc(100vh - 100px);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+        <img src="https://media.discordapp.net/attachments/741244174736556076/898501079019450438/unknown.png" alt="Logo">
+        Rides&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="nav-links">
+        <a href="/home" class="active">Home</a>
+        <a href="/dashboard" class="active">Rides</a>
+        <a href="/map/findall">Map</a>
+    </div>
+    <a href="/chat" class="chat-logo">
+        <i class="fas fa-comment"></i>
+    </a>
+  </header>
+
+  <div id="map"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // Initialize the map
+    var myMap = L.map('map').setView([20.5937, 78.9629], 5);
+
+    // Add the tile layer (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(myMap);
+
+    // Fetch destination city names from the server
+    axios.get('/map/dest')
+      .then(function (destinationsResponse) {
+        var destinationNames = destinationsResponse.data;
+
+        // Fetch source city name from the server
+        axios.get('/map/search/latest')
+          .then(function (sourceResponse) {
+            var sourceName = sourceResponse.data;
+
+            // Fetch latitude and longitude coordinates for each city
+            var cityCoordinates = [];
+
+            function getCoordinates(cityName, isDestination) {
+              var apiKey = '9d51d20250844d2492626c49e1c2e9f1';
+              var apiUrl = 'https://api.opencagedata.com/geocode/v1/json';
+
+              axios.get(apiUrl, {
+                params: {
+                  key: apiKey,
+                  q: cityName + ', India',
+                  limit: 1
+                }
+              })
+              .then(function (response) {
+                var results = response.data.results;
+                if (results && results.length > 0) {
+                  var latLng = results[0].geometry;
+                  cityCoordinates.push({ name: cityName, lat: latLng.lat, lng: latLng.lng, isDestination: isDestination });
+                  addMarker(cityName, latLng.lat, latLng.lng, isDestination);
+                  if (cityCoordinates.length === destinationNames.length + 1) {
+                    connectCities();
+                  }
+                }
+              })
+              .catch(function (error) {
+                console.error('Error fetching coordinates for ' + cityName, error);
+              });
+            }
+
+            // Add markers for the cities
+            function addMarker(cityName, lat, lng, isDestination) {
+              var markerColor = isDestination ? 'blue' : 'red';
+              var marker = L.marker([lat, lng], { icon: L.icon({ iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-' + markerColor + '.png', iconSize: [25, 41], iconAnchor: [12, 41] }) }).addTo(myMap);
+              marker.bindPopup('<b>' + cityName + '</b>');
+            }
+
+            // Connect source and destination cities with lines
+            function connectCities() {
+              var source = cityCoordinates[0];
+
+              for (var i = 1; i < cityCoordinates.length; i++) {
+                var destination = cityCoordinates[i];
+                var lineCoordinates = [
+                  [source.lat, source.lng],
+                  [destination.lat, destination.lng]
+                ];
+                var line = L.polyline(lineCoordinates, { color: 'blue', dashArray: '5, 5' }).addTo(myMap);
+                line.bindPopup('Route from ' + source.name + ' to ' + destination.name);
+              }
+            }
+
+            // Fetch coordinates for all destination cities
+            destinationNames.forEach(function (cityName) {
+              getCoordinates(cityName, true);
+            });
+
+            // Fetch coordinates for source city
+            getCoordinates(sourceName, false);
+          })
+          .catch(function (error) {
+            console.error('Error fetching source city name', error);
+          });
+      })
+      .catch(function (error) {
+        console.error('Error fetching destination city names', error);
+      });
+  </script>
+</body>
+</html>

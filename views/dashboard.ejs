@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="https://media.discordapp.net/attachments/741244174736556076/898501079019450438/unknown.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="description" content="SUBMISSION FOR SILICO BATTLES BY AISG46">
+
+
+    <style>
+        /* Custom styles for the header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+        }
+
+        .navbar .nav-links a {
+            margin: 0 10px;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #bbb;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #bbb;
+        }
+
+        .navbar .nav-links a.active {
+            background-color: #999;
+            color: #fff;
+        }
+
+        .navbar .chat-logo {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <a id="button"></a>
+    <div class="nav-user">
+        <div class="user">
+            Hey, <a href="/dashboard/profile/<%=user.id%>"><%=username%></a>
+        </div>
+        <a href="/carpool/create" class="create">Create a Carpool</a>
+        <div class="line-1"></div>
+        <h3 class="or">OR</h3>
+        <div class="line-2"></div>
+        <form action="/dashboard" method="post">
+            <input class="n-c" type="search" placeholder="Search" name="query" id="query">
+            <button type="submit" class="n-s">Search</button>
+        </form>
+    </div>
+    <div class="carpool-log">
+
+        <header class="navbar">
+            <div class="logo">
+                <img src="https://media.discordapp.net/attachments/741244174736556076/898501079019450438/unknown.png" alt="Logo">
+                Rides
+            </div>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/dashboard" class="active">Rides</a>
+                <a href="/map/findall">Map</a>
+            </div>
+            <a href="/chat" class="chat-logo">
+                <i class="fas fa-comment"></i>
+            </a>
+        </header>
+
+
+        <% if (query) { %>
+        <h2>Carpools matching <%=query%></h2>
+        <% } else { %>
+
+        <% } %>
+        <% if (carpools.length < 0) { %>
+        <h2>View Carpools Nearby</h2>
+        <div class="none-show"></div>
+        <h3>No rides Available :(</h3>
+        <% }  else { %>
+        <h2>View Carpools Nearby</h2>
+        <% for( let i = 0; i < carpools.length; i++ ) { %>
+
+        <div class="carpool-card">
+            <%= carpools[i]['origin'] %> <br>
+            <%= carpools[i]['destination'] %> <br>
+            <%= carpools[i]['date'] %> <br>
+            <%= carpools[i]['nopeople'] %> <br>
+            <%= carpools[i]['description'] %> <br> <br>
+            <form action="/carpool/accept" method="post">
+                <input value="<%=carpools[i]['_id']%>" id="id" name="id" hidden>
+                <button type="submit">Accept Carpool</button>
+            </form>
+        </div>
+        <% } %>
+        <% } %>
+    </div>
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var btn = $('#button');
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 300) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, '300');
+    });
+</script>
+
+</html>
