@@ -19,3 +19,7 @@ RideX is a ride-sharing application that provides a convenient and efficient pla
 - Real-Time Communication:
   - Integrated with Socket.IO, enabling real-time communication capabilities for seamless interaction between users.
 
+- Demo Video
+https://github.com/R-Bishnoi/RideX/assets/99094650/bfd2d9dd-258b-4cbd-8fec-0647809fe273
+
+
