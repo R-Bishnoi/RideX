@@ -29,8 +29,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 const PORT = 5000 || process.env.PORT
-const databaseName = 'RideX';
-const mongoURI = `mongodb+srv://mauryaharshpriya:m09Z1IW69fimJMXS@cluster0.eiabszr.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
+
+const mongoURI = process.env.MONGO_URI;
 //const mongoURI = `mongodb+srv://mauryaharshpriya:m09Z1IW69fimJMXS@cluster0.eiabszr.mongodb.net/?retryWrites=true&w=majority`
 mongoose.connect(String(mongoURI), {
     useNewUrlParser:true,
