@@ -1,7 +1,7 @@
 
 # RideX
 
-## Live Host    https://triptogether.onrender.com
+## Live Host :    https://triptogether.onrender.com
 
 RideX is a ride-sharing application that provides a convenient and efficient platform for connecting individuals and reducing transportation costs while minimizing environmental impact.
 
